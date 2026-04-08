@@ -1,0 +1,19 @@
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        k %= len(nums)
+        def reverse(nums, start, stop):
+            while start < stop:
+                nums[start], nums[stop] = nums[stop], nums[start]
+                start += 1
+                stop -= 1
+
+        reverse(nums, 0, len(nums) - 1)
+        reverse(nums, 0, k - 1)
+        reverse(nums, k , len(nums) - 1)
+
+        return nums
+                
+        
